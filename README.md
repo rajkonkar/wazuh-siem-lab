@@ -1,65 +1,48 @@
-# 🔐 Wazuh SIEM Lab - Real-Time Detection & Response
+# 🔐 Wazuh SIEM Lab — Real-Time Detection & Response
 
-A complete local SIEM lab built using Wazuh to simulate real-time detection of brute-force attacks and malware execution, along with automated blocking.
-
----
-
-## 💻 Lab Setup
-
-| Role          | OS            | Description         |
-|---------------|---------------|---------------------|
-| Wazuh Manager | Parrot OS     | SIEM platform       |
-| Target Agent  | Windows 10    | Monitored endpoint  |
-| Attacker VM   | Kali Linux    | Runs simulated attacks |
+This project is my personal **Wazuh-based SIEM lab**, built to practice **detection engineering**, **incident response**, and **log analysis** in a hands-on environment.  
+It’s part of my continuous journey to deepen my cybersecurity skills while preparing for certifications like **CompTIA Security+** and **OSCP**.
 
 ---
 
-## ✅ Features
+## 🚀 Project Overview
+The lab demonstrates how real-world security events (like brute-force attacks or malware execution) can be **detected**, **analyzed**, and **responded to automatically** using Wazuh.  
 
-- 🔍 RDP brute-force detection (Rule ID 60204)
-- 🦠 Malware detection with EICAR (Rule IDs 62123, 62124)
-- 🛡️ Active Response: IP auto-block via `firewalldrop`
-- 📊 Real-time log ingestion from Windows Defender
+I will keep improving this project week by week — documenting each step and adding new detections, configurations, and integrations.
 
 ---
 
-## 📄 Documentation
-
-See [`Wazuh_SIEM_Project_Final.docx`](./Wazuh_SIEM_Project_Final.docx) for full step-by-step implementation and screenshots.
-
----
-
-## 📸 Screenshots
-
-### Agent status in Wazuh
-![Agent status](./Agent%20status%20in%20Wazuh%20dashboard.png)
-
-### Wazuh dashboard login
-![Dashboard login](./Wazuh%20dashboard%20login%20page.png)
-
-### Wazuh manager service
-![Manager service](./Wazuh%20manager%20service%20status%20(systemctl%20output).png)
-
-### Nmap RDP scan
-![Nmap scan](./Nmap%20scan%20result%20showing%203389_tcp%20open.png)
-
-### Failed login detection
-![Failed logins](./Wazuh%20Security%20Events%20panel%20with%20failed%20login%20alerts.png)
-
-### Malware detection (EICAR)
-![EICAR detected](./Wazuh%20alert%20showing%20malware%20detection%20(EICAR).png)
-
-### Rule ID 60204 triggered
-![Active response](./Rule%20ID%2060204%20triggered%20with%20description%20Multiple%20Windows%20logon%20failures.png)
+## 🧠 Learning Goals
+- Understand **SIEM architecture** and **log ingestion pipelines**  
+- Write and test **custom Wazuh rules & decoders**  
+- Practice **detection engineering** and **active response automation**  
+- Document every improvement for others to follow
 
 ---
 
-## 🔜 Next Steps
+## 🧩 Lab Components
 
-- Add Sysmon for deeper process visibility  
-- Enable email alerts  
-- Deploy in a cloud-hosted SOC lab (AWS/Azure)
+| Role | OS | Description |
+|------|----|--------------|
+| 🧱 **Wazuh Manager** | Linux | Core SIEM platform for log collection, rules, and response |
+| 💻 **Windows 10 Agent** | Windows 10 | Monitored endpoint generating logs (RDP, Defender, Sysmon) |
+| ⚔️ **Attacker VM** | Kali Linux | Used to simulate attacks (RDP brute force, malware tests) |
 
 ---
 
-👋 Connect with me on [LinkedIn](https://www.linkedin.com/in/raj-konkar-b70b512a0/)
+## 🧰 Current Capabilities
+✅ Detects RDP brute-force attempts (Rule ID `60204`)  
+✅ Detects simulated malware events (EICAR test file)  
+✅ Triggers Active Response (IP auto-block via `firewalldrop`)  
+✅ Collects logs from Windows Defender and Event Viewer  
+
+---
+
+## ⚙️ Quickstart (Scaffold in Progress)
+> These steps will become fully runnable once the Docker setup is added (Day 2 in my roadmap).
+
+1. **Start the stack** (after `docker-compose.yml` is added):
+   ```bash
+   docker compose pull
+   docker compose up -d
+   docker compose ps
